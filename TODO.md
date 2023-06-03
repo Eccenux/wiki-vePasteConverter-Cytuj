@@ -8,6 +8,6 @@
 - [x] Genrowanie źródła Cite news.
 - [x] setup i porządki.
 - [x] poprawka UserScript (name na początku -> upstream).
+- [x] Wyświetlanie jakiegoś podglądu wklejonego? (coś wyciągnięcie z dataset?)
 - [] wrapper izolacyjny? (gulp-replace jakiś znaczników?)
 - [] Genrowanie źródła ref?
-- [] Wyświetlanie jakiegoś podglądu wklejonego? (coś wyciągnięcie z dataset?)

@@ -3,8 +3,14 @@
 	border: 1px solid gray;
 	padding: .5em;
 
-	span {
+	// oznaczenie wklejonego elementu
+	[data-ve-attributes] {
 		display: block;
 		background-color: lightcyan;
+	}
+
+	// podgląd elementu
+	[data-mw]::before {
+		content: attr(data-mw);
 	}
 }

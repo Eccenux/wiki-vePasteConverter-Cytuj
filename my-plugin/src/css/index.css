@@ -3,7 +3,10 @@
   border: 1px solid gray;
   padding: 0.5em;
 }
-#vepaste span {
+#vepaste [data-ve-attributes] {
   display: block;
   background-color: lightcyan;
+}
+#vepaste [data-mw]::before {
+  content: attr(data-mw);
 }
