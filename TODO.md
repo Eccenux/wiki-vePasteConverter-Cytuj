@@ -5,6 +5,6 @@
 - [x] Bazowa klasa z formularzem.
 - [x] Obsługa czyszczenia VE i bazowy CSS.
 - [x] Konwersja bazowa.
-- [] Genrowanie źródła Cite news.
+- [x] Genrowanie źródła Cite news.
 - [] Genrowanie źródła ref?
-- [] Wyświetlanie jakiegoś podglądu wklejonego?
+- [] Wyświetlanie jakiegoś podglądu wklejonego? (coś wyciągnięcie z dataset?)
