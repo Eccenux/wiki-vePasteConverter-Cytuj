@@ -16,9 +16,14 @@ var VePasta = class {
 		container.insertAdjacentHTML('beforeend', `
 			<section id="vepaste-main">
 				<h2>Kopia z VE</h2>
+				<p>Poniżej możesz wkleić szablon Cite z VE. 
+					Tylko pierwszy szablon zostanie odczytany.
+					Przed wklejeniem następnego wyczyść pole.</p>
 				<div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
-				<input type="button" id="vepaste-source" value="Generuj źródło">
-				<input type="button" id="vepaste-clear" value="Wyczyść">
+				<p>
+					<input type="button" id="vepaste-source" value="Generuj źródło">
+					<input type="button" id="vepaste-clear" value="Wyczyść">
+				</p>
 			</section>
 		`);
 		// actions
