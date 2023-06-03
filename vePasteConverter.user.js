@@ -1,6 +1,6 @@
 // ==UserScript==
-// @author      Eccenux
 // @name        wiki vePasteConverter Cytuj
+// @author      Eccenux
 // @namespace   https://github.com/jonatkins/ingress-intel-total-conversion
 // @version     0.0.1
 // @description [0.0.1] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
@@ -52,7 +52,7 @@ class Plugin {
 		var el = document.createElement('style');
 		el.type = 'text/css';
 		el.media = 'screen';
-		el.appendChild(document.createTextNode(window.plugin.mobileFoxUx.CSS));
+		el.appendChild(document.createTextNode(this.css));
 		document.querySelector('head').appendChild(el);
 	}
 }
