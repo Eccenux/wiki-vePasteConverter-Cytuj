@@ -19,7 +19,7 @@ var VePasta = class {
 				<p>Poniżej możesz wkleić szablon Cite z VE. 
 					Tylko pierwszy szablon zostanie odczytany.
 					Przed wklejeniem następnego wyczyść pole.</p>
-				<div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
+				<div id="vepaste" style="border:1xp solid gray" contenteditable></div>
 				<p>
 					<input type="button" id="vepaste-source" value="Generuj źródło">
 					<input type="button" id="vepaste-clear" value="Wyczyść">

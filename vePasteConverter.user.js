@@ -2,8 +2,8 @@
 // @name        wiki vePasteConverter Cytuj
 // @author      Eccenux
 // @namespace   https://github.com/jonatkins/ingress-intel-total-conversion
-// @version     0.1.3
-// @description [0.1.3] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
+// @version     0.1.4
+// @description [0.1.4] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
 // @updateURL   https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.meta.js
 // @downloadURL https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.user.js
 // @match       http://tools.wikimedia.pl/~malarz_pl/cgi-bin/convert.pl*
@@ -82,7 +82,7 @@ var VePasta = class {
 				<p>Poniżej możesz wkleić szablon Cite z VE. 
 					Tylko pierwszy szablon zostanie odczytany.
 					Przed wklejeniem następnego wyczyść pole.</p>
-				<div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
+				<div id="vepaste" style="border:1xp solid gray" contenteditable></div>
 				<p>
 					<input type="button" id="vepaste-source" value="Generuj źródło">
 					<input type="button" id="vepaste-clear" value="Wyczyść">

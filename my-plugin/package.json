@@ -1,7 +1,7 @@
 {
 	"name": "wiki-vepasteconverter",
-	"version": "0.1.3",
-	"description": "[0.1.3] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).",
+	"version": "0.1.4",
+	"description": "[0.1.4] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).",
 	"author": "Eccenux",
 	"license": "MIT",
 	"main": "index.js",
