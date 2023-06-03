@@ -15,7 +15,7 @@ var VePasta = class {
 		const container = document.getElementById('mw_content');
 		container.insertAdjacentHTML('beforeend', `
 			<section id="vepaste-main">
-				<h2>Kopia z VE</h2>
+				<h2>Kopia z VE:</h2>
 				<p>Poniżej możesz wkleić szablon Cite z VE. 
 					Tylko pierwszy szablon zostanie odczytany.
 					Przed wklejeniem następnego wyczyść pole.</p>
