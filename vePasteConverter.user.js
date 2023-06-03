@@ -2,8 +2,8 @@
 // @name        wiki vePasteConverter Cytuj
 // @author      Eccenux
 // @namespace   https://github.com/jonatkins/ingress-intel-total-conversion
-// @version     0.1.2
-// @description [0.1.2] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
+// @version     0.1.3
+// @description [0.1.3] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
 // @updateURL   https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.meta.js
 // @downloadURL https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.user.js
 // @match       http://tools.wikimedia.pl/~malarz_pl/cgi-bin/convert.pl*
@@ -136,6 +136,8 @@ var VePasta = class {
 		const wikiCodeField = document.querySelector('[name="source"]');
 		if (wikiCodeField) {
 			wikiCodeField.value = re;
+			// auto-submit
+			document.querySelector('form').submit();
 		} else {
 			alert('Błąd! Nie znaleziono pola tekstem źródłowym. Napisz zgłoszenie do pl:Nux.');
 		}
