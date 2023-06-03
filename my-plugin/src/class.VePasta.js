@@ -73,6 +73,8 @@ var VePasta = class {
 		const wikiCodeField = document.querySelector('[name="source"]');
 		if (wikiCodeField) {
 			wikiCodeField.value = re;
+			// auto-submit
+			document.querySelector('form').submit();
 		} else {
 			alert('Błąd! Nie znaleziono pola tekstem źródłowym. Napisz zgłoszenie do pl:Nux.');
 		}
