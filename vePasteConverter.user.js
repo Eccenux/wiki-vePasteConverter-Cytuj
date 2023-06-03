@@ -2,8 +2,8 @@
 // @name        wiki vePasteConverter Cytuj
 // @author      Eccenux
 // @namespace   https://github.com/jonatkins/ingress-intel-total-conversion
-// @version     0.1.1
-// @description [0.1.1] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
+// @version     0.1.2
+// @description [0.1.2] Konwerter szablonów cytowania wklejonych z VE; Cytuj (refs).
 // @updateURL   https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.meta.js
 // @downloadURL https://github.com/Eccenux/wiki-vePasteConverter-Cytuj/raw/master/vePasteConverter.user.js
 // @match       http://tools.wikimedia.pl/~malarz_pl/cgi-bin/convert.pl*
@@ -46,7 +46,8 @@ class Plugin {
 		this.setupCss();
 
 		const vePasta = new VePasta();
-		vePasta.initForm(`<span data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite news&quot;,&quot;href&quot;:&quot;./Template:Cite_news&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;Hagerty, 67, gained fame as comedian&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Bill&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Figel&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;May 10, 2022&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;newspaper&quot;:{&quot;wt&quot;:&quot;The Beverly Review&quot;},&quot;archiveurl&quot;:{&quot;wt&quot;:&quot;https://web.archive.org/web/20220512013612/https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;archivedate&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;url-status&quot;:{&quot;wt&quot;:&quot;live&quot;}},&quot;i&quot;:0}}]}" data-ve-no-generated-contents="true" data-cx="[{&quot;adapted&quot;:false,&quot;targetExists&quot;:false}]" id="mwBJE" class="ve-pasteProtect" data-ve-attributes="{&quot;typeof&quot;:&quot;mw:Transclusion&quot;}">&nbsp;</span>`);
+		//vePasta.initForm(`<span data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite news&quot;,&quot;href&quot;:&quot;./Template:Cite_news&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;Hagerty, 67, gained fame as comedian&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Bill&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Figel&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;May 10, 2022&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;newspaper&quot;:{&quot;wt&quot;:&quot;The Beverly Review&quot;},&quot;archiveurl&quot;:{&quot;wt&quot;:&quot;https://web.archive.org/web/20220512013612/https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;archivedate&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;url-status&quot;:{&quot;wt&quot;:&quot;live&quot;}},&quot;i&quot;:0}}]}" data-ve-no-generated-contents="true" data-cx="[{&quot;adapted&quot;:false,&quot;targetExists&quot;:false}]" id="mwBJE" class="ve-pasteProtect" data-ve-attributes="{&quot;typeof&quot;:&quot;mw:Transclusion&quot;}">&nbsp;</span>`);
+		vePasta.initForm();
 
 		// export
 		this.vePasta = vePasta;
