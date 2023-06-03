@@ -1,6 +1,6 @@
 # Wiki: Cytuj VE (vePasteConverter)
 
-Konwerter szablonów cytowania wklejonych z VE ({{Cytuj}}, &lt;ref>).
+Konwerter szablonów cytowania wklejonych z VE (szablony {{Cite}} i &lt;ref> na {{Cytuj}}).
 
 Rozszerzenie funkcjonalności dla:
 http://tools.wikimedia.pl/~malarz_pl/cgi-bin/convert.pl
