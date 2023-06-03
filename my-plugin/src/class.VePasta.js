@@ -1,8 +1,9 @@
-﻿/**
+﻿/* global vepaste */
+/**
  * VE Paste core.
  */
 var VePasta = class {
-	initForm() {
+	initForm(initialPaste) {
 		// remove previous
 		const prev = document.querySelector('#vepaste-main');
 		if (prev) {
@@ -12,13 +13,13 @@ var VePasta = class {
 		// create html
 		const container = document.getElementById('mw_content');
 		container.insertAdjacentHTML('beforeend', `
-		  <section id="vepaste-main">
-		  <h2>Kopia z VE</h2>
-		  <div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
-		  <input type="button" id="vepaste-source" value="Generuj źródło">
-		  <input type="button" id="vepaste-clear" value="Wyczyść">
-		  </section>
-	  `);
+			<section id="vepaste-main">
+				<h2>Kopia z VE</h2>
+				<div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
+				<input type="button" id="vepaste-source" value="Generuj źródło">
+				<input type="button" id="vepaste-clear" value="Wyczyść">
+			</section>
+		`);
 		// actions
 		const source = document.querySelector('#vepaste-source');
 		const clear = document.querySelector('#vepaste-clear');
@@ -28,6 +29,11 @@ var VePasta = class {
 		clear.addEventListener('click', () => {
 			this.clear();
 		});
+
+		// test/saved html
+		if (initialPaste) {
+			vepaste.innerHTML = initialPaste;
+		}
 	}
 
 	/** Clear action. */
@@ -39,6 +45,12 @@ var VePasta = class {
 	async convert() {
 		let html = vepaste.innerHTML;
 		let re = await this.convertToWiki(html);
+		const wikiCodeField = document.querySelector('[name="source"]');
+		if (wikiCodeField) {
+			wikiCodeField.value = re;
+		} else {
+			alert('Błąd! Nie znaleziono pola tekstem źródłowym. Napisz zgłoszenie do pl:Nux.');
+		}
 		console.log(re, vepaste.firstElementChild);
 		return re;
 	}
@@ -55,6 +67,7 @@ var VePasta = class {
 			"Api-User-Agent": "VePasta; author=pl:Nux",
 			"mode": "cors"
 		}).then(re => re.text());
+
 		return re;
 	}
 
@@ -69,5 +82,5 @@ var VePasta = class {
 }
 
 var vePasta = new VePasta();
-vePasta.initForm();
+vePasta.initForm(`<span data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite news&quot;,&quot;href&quot;:&quot;./Template:Cite_news&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;Hagerty, 67, gained fame as comedian&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Bill&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Figel&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;May 10, 2022&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;newspaper&quot;:{&quot;wt&quot;:&quot;The Beverly Review&quot;},&quot;archiveurl&quot;:{&quot;wt&quot;:&quot;https://web.archive.org/web/20220512013612/https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;archivedate&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;url-status&quot;:{&quot;wt&quot;:&quot;live&quot;}},&quot;i&quot;:0}}]}" data-ve-no-generated-contents="true" data-cx="[{&quot;adapted&quot;:false,&quot;targetExists&quot;:false}]" id="mwBJE" class="ve-pasteProtect" data-ve-attributes="{&quot;typeof&quot;:&quot;mw:Transclusion&quot;}">&nbsp;</span>`);
 //await vePasta.convertTest();
