@@ -2,4 +2,72 @@
  * VE Paste core.
  */
 var VePasta = class {
+	initForm() {
+		// remove previous
+		const prev = document.querySelector('#vepaste-main');
+		if (prev) {
+			prev.remove();
+		}
+
+		// create html
+		const container = document.getElementById('mw_content');
+		container.insertAdjacentHTML('beforeend', `
+		  <section id="vepaste-main">
+		  <h2>Kopia z VE</h2>
+		  <div id="vepaste" style="border:1xp solid gray" contenteditable>test</div>
+		  <input type="button" id="vepaste-source" value="Generuj źródło">
+		  <input type="button" id="vepaste-clear" value="Wyczyść">
+		  </section>
+	  `);
+		// actions
+		const source = document.querySelector('#vepaste-source');
+		const clear = document.querySelector('#vepaste-clear');
+		source.addEventListener('click', () => {
+			this.convert();
+		});
+		clear.addEventListener('click', () => {
+			this.clear();
+		});
+	}
+
+	/** Clear action. */
+	clear() {
+		vepaste.innerHTML = '';
+	}
+
+	/** Convert pasted code to wikitext. */
+	async convert() {
+		let html = vepaste.innerHTML;
+		let re = await this.convertToWiki(html);
+		console.log(re, vepaste.firstElementChild);
+		return re;
+	}
+
+	/** Convert HTML to wikitext (MW API). */
+	async convertToWiki(html) {
+		const data = new URLSearchParams();
+		data.append('html', html);
+
+		let re = await fetch("https://pl.wikipedia.org/api/rest_v1/transform/html/to/wikitext/", {
+			"credentials": "omit",
+			"body": data,
+			"method": "POST",
+			"Api-User-Agent": "VePasta; author=pl:Nux",
+			"mode": "cors"
+		}).then(re => re.text());
+		return re;
+	}
+
+	/** Static test */
+	async convertTest() {
+		//var html = vepaste.innerHTML;
+		let html = "<span typeof=\"mw:Transclusion\" data-mw=\"{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;cite news&quot;,&quot;href&quot;:&quot;./Template:Cite_news&quot;},&quot;params&quot;:{&quot;title&quot;:{&quot;wt&quot;:&quot;Hagerty, 67, gained fame as comedian&quot;},&quot;url&quot;:{&quot;wt&quot;:&quot;https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;first&quot;:{&quot;wt&quot;:&quot;Bill&quot;},&quot;last&quot;:{&quot;wt&quot;:&quot;Figel&quot;},&quot;date&quot;:{&quot;wt&quot;:&quot;May 10, 2022&quot;},&quot;access-date&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;newspaper&quot;:{&quot;wt&quot;:&quot;The Beverly Review&quot;},&quot;archiveurl&quot;:{&quot;wt&quot;:&quot;https://web.archive.org/web/20220512013612/https://www.beverlyreview.net/news/top_story/article_863200fc-d077-11ec-b60d-675bd020dc39.html&quot;},&quot;archivedate&quot;:{&quot;wt&quot;:&quot;May 12, 2022&quot;},&quot;url-status&quot;:{&quot;wt&quot;:&quot;live&quot;}},&quot;i&quot;:0}}]}\" data-ve-no-generated-contents=\"true\" data-cx=\"[{&quot;adapted&quot;:false,&quot;targetExists&quot;:false}]\" id=\"mwBJE\">&nbsp;</span>"
+		let re = await this.convertToWiki(html);
+		console.log(re, vepaste.firstElementChild);
+		return re;
+	}
 }
+
+var vePasta = new VePasta();
+vePasta.initForm();
+//await vePasta.convertTest();

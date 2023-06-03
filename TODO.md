@@ -1,7 +1,7 @@
 # TODO
 
 - [x] Test API do konwersji. (CORS OK)
-- [] Bazowy projekt GulpMonkey.
-- [] Bazowa klasa z formularzem.
-- [] Obsługa czyszczenia VE i bazowy CSS.
+- [x] Bazowy projekt GulpMonkey.
+- [x] Bazowa klasa z formularzem.
+- [x] Obsługa czyszczenia VE i bazowy CSS.
 - [] .
